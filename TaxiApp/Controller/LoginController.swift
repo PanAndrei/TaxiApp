@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginController: UIViewController {
     
@@ -41,27 +42,16 @@ class LoginController: UIViewController {
                                        isSecureText: true)
     }()
     
-    private let loginButton: UIButton = {
-        let button = UIButton()
+    private let loginButton: AuthButton = {
+        let button = AuthButton(type: .system)
         button.setTitle("Log In", for: .normal)
-        button.setTitleColor(UIColor(white: 1, alpha: 0.5), for: .normal)
-        button.backgroundColor = .mainBlueTint
-        button.layer.cornerRadius = 5
-        button.anchor(height: 50)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        button.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
         return button
     }()
     
     private let dontHaveAccountButton: UIButton = {
-        let button = UIButton()
-        let attributedTitle = NSMutableAttributedString(string: "Don't have an account?  ", attributes: [
-            NSMutableAttributedString.Key.font: UIFont.systemFont(ofSize: 16),
-            NSMutableAttributedString.Key.foregroundColor: UIColor.lightGray])
-        attributedTitle.append(NSAttributedString(string: "Sign Up", attributes: [
-            NSMutableAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16),
-            NSMutableAttributedString.Key.foregroundColor: UIColor.mainBlueTint]))
+        let button = RegistrationButton(firstPhrase: "Don't have an account?  ", secondPhrase: "Sign Up")
         button.addTarget(self, action: #selector(handleShowSignUP), for: .touchUpInside)
-        button.setAttributedTitle(attributedTitle, for: .normal)
         return button
     }()
     
@@ -80,14 +70,14 @@ class LoginController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .backgroundColor
-        
         setUpView()
     }
     
     // MARK: - Helper functions
-
+    
     func setUpView() {
+        view.backgroundColor = .backgroundColor
+        
         view.addSubview(titleLabel)
         view.addSubview(stackView)
         view.addSubview(dontHaveAccountButton)
@@ -112,14 +102,28 @@ class LoginController: UIViewController {
         navigationController?.navigationBar.barStyle = .black
     }
     
-//    override var preferredStatusBarStyle: UIStatusBarStyle {
-//        return .lightContent
-//    }
+    //    override var preferredStatusBarStyle: UIStatusBarStyle {
+    //        return .lightContent
+    //    }
     
     // MARK: - Selectrors
     
     @objc func handleShowSignUP() {
         let controller = SignUpController()
         navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    @objc func handleLogin() {
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        
+        Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+            if let error = error {
+                print("Failed log user in with error \(error.localizedDescription)")
+                return
+            }
+            print("Succesfully logged user in..")
+            self.dismiss(animated: true, completion: nil)
+        }
     }
 }

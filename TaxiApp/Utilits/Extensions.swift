@@ -7,6 +7,16 @@
 
 import UIKit
 
+extension UIWindow {
+    static var key: UIWindow? {
+        if #available(iOS 13, *) {
+            return UIApplication.shared.windows.first { $0.isKeyWindow }
+        } else {
+            return UIApplication.shared.keyWindow
+        }
+    }
+}
+
 extension UIColor {
     static func rgb(red: CGFloat, green: CGFloat, blue: CGFloat) -> UIColor {
         return UIColor.init(red: red/255, green: green/255, blue: blue/255, alpha: 1)
@@ -18,7 +28,7 @@ extension UIColor {
 
 extension UIView {
     
-    func inputContainerView(image: String, textField: UITextField) -> UIView {
+    func inputContainerView(image: String, textField: UITextField? = nil, segmentedControl: UISegmentedControl? = nil) -> UIView {
         let view = UIView()
         
         let imageView = UIImageView()
@@ -27,12 +37,23 @@ extension UIView {
         imageView.tintColor = .white
         imageView.alpha = 0.8
         view.addSubview(imageView)
-        imageView.centerY(inView: view)
-        imageView.anchor(left: view.leftAnchor, paddingLeft: 8)
         
-        view.addSubview(textField)
-        textField.anchor(left: imageView.rightAnchor, paddingLeft: 8)
-        textField.centerY(inView: view)
+        if let textField = textField {
+            view.addSubview(textField)
+            textField.anchor(left: imageView.rightAnchor, paddingLeft: 8)
+            textField.centerY(inView: view)
+            
+            imageView.centerY(inView: view)
+            imageView.anchor(left: view.leftAnchor, paddingLeft: 8)
+        }
+        
+        if let sc = segmentedControl {
+            imageView.anchor(top: view.topAnchor, left: view.leftAnchor, padddingTop: -8, paddingLeft: 8)
+            
+            view.addSubview(sc)
+            sc.anchor(left: view.leftAnchor, right: view.rightAnchor, paddingLeft: 8, paddingRight: 8)
+            sc.centerY(inView: view, constant: 8)
+        }
         
         let separatorView = UIView()
         separatorView.backgroundColor = .lightGray
@@ -80,8 +101,8 @@ extension UIView {
         centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
     
-    func centerY(inView view: UIView) {
-        centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+    func centerY(inView view: UIView, constant: CGFloat = 0) {
+        centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: constant).isActive = true
     }
 }
 

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		86F1B3D66E27C6223BC95DD1 /* Pods_TaxiApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E294BAB9B51D1442157EE4C8 /* Pods_TaxiApp.framework */; };
+		B6167E8527F1F35E006F4197 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6167E8427F1F35E006F4197 /* HomeController.swift */; };
+		B6394F7127F1D6DD008D6A9D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B6394F7027F1D6DD008D6A9D /* GoogleService-Info.plist */; };
 		B6A09BF127F0AA9700C7B8E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A09BF027F0AA9700C7B8E4 /* AppDelegate.swift */; };
 		B6A09BF327F0AA9700C7B8E4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A09BF227F0AA9700C7B8E4 /* SceneDelegate.swift */; };
 		B6A09BF827F0AA9700C7B8E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6A09BF627F0AA9700C7B8E4 /* Main.storyboard */; };
@@ -15,9 +18,15 @@
 		B6A09C0A27F0AB8500C7B8E4 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A09C0927F0AB8500C7B8E4 /* LoginController.swift */; };
 		B6A09C0C27F0C5BD00C7B8E4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A09C0B27F0C5BD00C7B8E4 /* Extensions.swift */; };
 		B6A09C3327F0F9B900C7B8E4 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A09C3227F0F9B900C7B8E4 /* SignUpController.swift */; };
+		B6A09C3527F1B07E00C7B8E4 /* AuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A09C3427F1B07E00C7B8E4 /* AuthButton.swift */; };
+		B6A09C3727F1BCB100C7B8E4 /* RegistrationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A09C3627F1BCB100C7B8E4 /* RegistrationButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1CC9746A5772470F154DD6E3 /* Pods-TaxiApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaxiApp.release.xcconfig"; path = "Target Support Files/Pods-TaxiApp/Pods-TaxiApp.release.xcconfig"; sourceTree = "<group>"; };
+		97A02114761CDDFD3BF1BA28 /* Pods-TaxiApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaxiApp.debug.xcconfig"; path = "Target Support Files/Pods-TaxiApp/Pods-TaxiApp.debug.xcconfig"; sourceTree = "<group>"; };
+		B6167E8427F1F35E006F4197 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		B6394F7027F1D6DD008D6A9D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B6A09BED27F0AA9700C7B8E4 /* TaxiApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaxiApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6A09BF027F0AA9700C7B8E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6A09BF227F0AA9700C7B8E4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -28,6 +37,9 @@
 		B6A09C0927F0AB8500C7B8E4 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		B6A09C0B27F0C5BD00C7B8E4 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		B6A09C3227F0F9B900C7B8E4 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
+		B6A09C3427F1B07E00C7B8E4 /* AuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButton.swift; sourceTree = "<group>"; };
+		B6A09C3627F1BCB100C7B8E4 /* RegistrationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationButton.swift; sourceTree = "<group>"; };
+		E294BAB9B51D1442157EE4C8 /* Pods_TaxiApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TaxiApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +47,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86F1B3D66E27C6223BC95DD1 /* Pods_TaxiApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		29C81D9E7E5DE191A56E7A3B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				97A02114761CDDFD3BF1BA28 /* Pods-TaxiApp.debug.xcconfig */,
+				1CC9746A5772470F154DD6E3 /* Pods-TaxiApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		9D71A8172BD3F4A1CF51C6A0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E294BAB9B51D1442157EE4C8 /* Pods_TaxiApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B6A09BE427F0AA9700C7B8E4 = {
 			isa = PBXGroup;
 			children = (
 				B6A09BEF27F0AA9700C7B8E4 /* TaxiApp */,
 				B6A09BEE27F0AA9700C7B8E4 /* Products */,
+				29C81D9E7E5DE191A56E7A3B /* Pods */,
+				9D71A8172BD3F4A1CF51C6A0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,6 +103,7 @@
 				B6A09BF927F0AA9900C7B8E4 /* Assets.xcassets */,
 				B6A09BFB27F0AA9900C7B8E4 /* LaunchScreen.storyboard */,
 				B6A09BFE27F0AA9900C7B8E4 /* Info.plist */,
+				B6394F7027F1D6DD008D6A9D /* GoogleService-Info.plist */,
 			);
 			path = TaxiApp;
 			sourceTree = "<group>";
@@ -95,6 +128,7 @@
 			children = (
 				B6A09C0927F0AB8500C7B8E4 /* LoginController.swift */,
 				B6A09C3227F0F9B900C7B8E4 /* SignUpController.swift */,
+				B6167E8427F1F35E006F4197 /* HomeController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -102,6 +136,8 @@
 		B6A09C0727F0AAF000C7B8E4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B6A09C3427F1B07E00C7B8E4 /* AuthButton.swift */,
+				B6A09C3627F1BCB100C7B8E4 /* RegistrationButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -120,9 +156,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B6A09C0127F0AA9900C7B8E4 /* Build configuration list for PBXNativeTarget "TaxiApp" */;
 			buildPhases = (
+				22FB086171F34E300CE97510 /* [CP] Check Pods Manifest.lock */,
 				B6A09BE927F0AA9700C7B8E4 /* Sources */,
 				B6A09BEA27F0AA9700C7B8E4 /* Frameworks */,
 				B6A09BEB27F0AA9700C7B8E4 /* Resources */,
+				50A7CA62EA1B3CBEBE1EAB09 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -172,6 +210,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6A09BFD27F0AA9900C7B8E4 /* LaunchScreen.storyboard in Resources */,
+				B6394F7127F1D6DD008D6A9D /* GoogleService-Info.plist in Resources */,
 				B6A09BFA27F0AA9900C7B8E4 /* Assets.xcassets in Resources */,
 				B6A09BF827F0AA9700C7B8E4 /* Main.storyboard in Resources */,
 			);
@@ -179,16 +218,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		22FB086171F34E300CE97510 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TaxiApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		50A7CA62EA1B3CBEBE1EAB09 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TaxiApp/Pods-TaxiApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TaxiApp/Pods-TaxiApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TaxiApp/Pods-TaxiApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B6A09BE927F0AA9700C7B8E4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				B6A09C3327F0F9B900C7B8E4 /* SignUpController.swift in Sources */,
+				B6A09C3527F1B07E00C7B8E4 /* AuthButton.swift in Sources */,
 				B6A09BF127F0AA9700C7B8E4 /* AppDelegate.swift in Sources */,
 				B6A09C0C27F0C5BD00C7B8E4 /* Extensions.swift in Sources */,
+				B6167E8527F1F35E006F4197 /* HomeController.swift in Sources */,
 				B6A09C0A27F0AB8500C7B8E4 /* LoginController.swift in Sources */,
 				B6A09BF327F0AA9700C7B8E4 /* SceneDelegate.swift in Sources */,
+				B6A09C3727F1BCB100C7B8E4 /* RegistrationButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,6 +416,7 @@
 		};
 		B6A09C0227F0AA9900C7B8E4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 97A02114761CDDFD3BF1BA28 /* Pods-TaxiApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -361,6 +446,7 @@
 		};
 		B6A09C0327F0AA9900C7B8E4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1CC9746A5772470F154DD6E3 /* Pods-TaxiApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
