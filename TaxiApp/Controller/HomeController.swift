@@ -15,6 +15,7 @@ class HomeController: UIViewController {
     private let mapView = MKMapView()
     private let locationManager = CLLocationManager()
     private let locationActivationView = LocationInputActivationView()
+    private let locationInputView = LocationInputView()
     
     // MARK: - Lifecycle
     
@@ -23,14 +24,14 @@ class HomeController: UIViewController {
         
         checkIfUserIsLoggedIn()
         enableLotionServices()
-//        signOut()
+        //        signOut()
     }
     
     // MARK: - Helper functions
     
     func setupView() {
         view.backgroundColor = .backgroundColor
-
+        
         configureMapView()
         
         view.addSubview(locationActivationView)
@@ -52,9 +53,24 @@ class HomeController: UIViewController {
     func configureMapView() {
         view.addSubview(mapView)
         mapView.frame = view.frame
-
+        
         mapView.showsUserLocation = true
         mapView.userTrackingMode = .follow
+    }
+    
+    func configureLocationInputView() {
+        locationInputView.delegate = self
+        view.addSubview(locationInputView)
+        
+        locationInputView.anchor(top: view.topAnchor, left: view.leftAnchor, right: view.rightAnchor, height: 200)
+        locationInputView.alpha = 0
+        
+        UIView.animate(withDuration: 0.5) {
+            self.locationInputView.alpha = 1
+        } completion: { _Arg in
+            print("present table view")
+        }
+        
     }
     
     // MARK: - Selectors
@@ -63,16 +79,16 @@ class HomeController: UIViewController {
     
     func checkIfUserIsLoggedIn() {
         if let uid = Auth.auth().currentUser?.uid {
-          setupView()
-          print("DEBUG: \(uid)")
+            setupView()
+            print("DEBUG: \(uid)")
         } else {
-          DispatchQueue.main.async {
-            let navigationController = UINavigationController(rootViewController: LoginController())
-            navigationController.modalPresentationStyle = .fullScreen
-            self.present(navigationController, animated: true) {
-              self.setupView()
+            DispatchQueue.main.async {
+                let navigationController = UINavigationController(rootViewController: LoginController())
+                navigationController.modalPresentationStyle = .fullScreen
+                self.present(navigationController, animated: true) {
+                    self.setupView()
+                }
             }
-          }
         }
     }
     
@@ -111,15 +127,32 @@ extension HomeController: CLLocationManagerDelegate {
     }
     
     internal func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-    
+        
         if status == .authorizedWhenInUse {
             locationManager.requestAlwaysAuthorization()
         }
     }
 }
 
+// MARK: - LocationInputActivationViewDelegate
+
 extension HomeController: LocationInputActivationViewDelegate {
     func presentLocationInputView() {
-        print("delegate works")
+        locationActivationView.alpha = 0
+        configureLocationInputView()
+    }
+}
+
+// MARK: - LocationInputViewDelegate
+
+extension HomeController: LocationInputViewDelegate {
+    func dismissLocationInputView() {
+        UIView.animate(withDuration: 0.3) {
+            self.locationInputView.alpha = 0
+        } completion: { _ in
+            UIView.animate(withDuration: 0.3, animations: {
+                self.locationActivationView.alpha = 1
+            })
+        }
     }
 }
