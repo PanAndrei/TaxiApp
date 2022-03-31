@@ -153,5 +153,4 @@ class SignUpController: UIViewController {
     @objc func handleShowLogin() {
         navigationController?.popViewController(animated: true)
     }
-    
 }
