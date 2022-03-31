@@ -142,5 +142,4 @@ class LocationInputView: UIView {
     @objc func handleBackTapped() {
         delegate?.dismissLocationInputView()
     }
-    
 }
